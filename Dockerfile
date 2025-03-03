@@ -34,7 +34,7 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 
 COPY . /app
-RUN python3 -c "from .util.omniparser import Omniparser"
+RUN python3 -c "from util.omniparser import Omniparser"
 
 ENTRYPOINT ["run.sh"]
 
