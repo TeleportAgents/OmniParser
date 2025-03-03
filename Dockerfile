@@ -16,11 +16,10 @@ RUN apt-get update && apt-get install -y \
 ENV CONDA_DIR=/opt/conda
 ENV PATH=$CONDA_DIR/bin:$PATH
 
-RUN wget --quiet https://repo.anaconda.com/miniconda/miniconda-latest-Linux-x86_64.sh -O /tmp/miniconda.sh \
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh \
     && bash /tmp/miniconda.sh -b -p $CONDA_DIR \
     && rm /tmp/miniconda.sh \
     && conda clean --all --yes \
-    && rm -rf /var/lib/apt/lists/*
 
 
 RUN conda create -n "omni" python==3.12 
