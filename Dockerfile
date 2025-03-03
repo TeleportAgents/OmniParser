@@ -26,11 +26,12 @@ RUN conda create -n "omni" python==3.12
 # Make RUN commands use the new environment:
 SHELL ["conda", "run", "-n", "omni", "/bin/bash", "-c"]
 
-RUN pip install --no-cache-dir torch transformers huggingface_hub git-lfs fastapi
+RUN pip install --no-cache-dir huggingface_hub fastapi
 
 COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
 
+RUN pip install -r requirements.txt
 
 COPY . /app
 RUN python3 -c "from .util.omniparser import Omniparser"
